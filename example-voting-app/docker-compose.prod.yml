@@ -2,7 +2,6 @@ version: "2"
 
 services:
   voting-app:
-    build: ./voting-app/.
     image: lherrera/voting-app
     volumes:
      - ./voting-app:/app
@@ -13,8 +12,7 @@ services:
       - back-tier
 
   result-app:
-    build: ./result-app/.
-    image: lherrera/result-app
+    image: lherrera//result-app
     volumes:
       - ./result-app:/app
     ports:
