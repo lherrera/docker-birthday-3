@@ -27,7 +27,7 @@ node ('ci-docker') {
 node ('prod') {
   dir('example-voiting-app') {
     stage "Deploying in production"
-    sh "docker-compose up -d -f docker-compose.prod.yml"
+    sh "docker-compose -f docker-compose.prod.yml up -d"
   }
 }
 
