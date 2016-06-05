@@ -7,7 +7,7 @@ node ('ci-docker') {
    stage "Deploy Application on CI env"
      sh "docker-compose  stop"
      sh "docker-compose  rm -f"
-     sh "docker-compose  up -d
+     sh "docker-compose  up -d"
    stage "Test" 
 	parallel 'inegration': {
           sh "sleep 10"
