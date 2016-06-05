@@ -7,17 +7,22 @@ node ('ci-docker') {
    stage "Deploy Application on CI env"
      sh "docker-compose  stop"
      sh "docker-compose  rm -f"
-     sh "docker-compose  up -d"
-   stage "Testing"
-    sh "sleep 10"
-    sh "curl localhost:5000"
-    sh "curl localhost:5001"
+     sh "docker-compose  up -d
+   stage "Test" 
+	parallel 'inegration': {
+          sh "sleep 10"
+          sh "curl localhost:5000"
+          sh "curl localhost:5001"
+        },
+        'quality': {
+          echo "always missing"
+        }
    stage "Publish Application Details"
     sh "docker-compose ps"
  }
 }
 node ('prod') {
   stage "Deploying in production"
-  echo "testing"
+  echo """
 }
 
