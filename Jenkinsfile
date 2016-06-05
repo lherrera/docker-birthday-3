@@ -16,8 +16,8 @@ node ('ci-docker') {
     sh "docker-compose ps"
  }
 }
-node ('prod')
+node ('prod') {
   stage "Deploying in production"
   echo "testing"
-
+}
 
