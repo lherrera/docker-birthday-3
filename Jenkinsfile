@@ -3,12 +3,12 @@ node ('docker') {
  checkout scm
  dir ('example-voting-app') {
  stage "Build Images"
- sh "docker-compose -f docker-compose.yml build"
+ sh "docker-compose build"
  stage "Deploy Application"
- sh "docker-compose -f docker-compose.yml -f docker-compose.singlenode.yml stop"
- sh "docker-compose -f docker-compose.yml -f docker-compose.singlenode.yml rm -f"
- sh "docker-compose -f docker-compose.yml -f docker-compose.singlenode.yml up -d"
+ sh "docker-compose  stop"
+ sh "docker-compose  rm -f"
+ sh "docker-compose  up -d"
  stage "Publish Application Details"
- sh "docker-compose -f docker-compose.yml -f docker-compose.singlenode.yml ps"
+ sh "docker-compose ps"
  }
 }
