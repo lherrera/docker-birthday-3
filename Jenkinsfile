@@ -1,10 +1,10 @@
-node ('docker') {
+node ('ci-docker') {
  stage "Checkout App Code"
   checkout scm
   dir ('example-voting-app') {
    stage "Build Images"
      sh "docker-compose build"
-   stage "Deploy Application"
+   stage "Deploy Application on CI env"
      sh "docker-compose  stop"
      sh "docker-compose  rm -f"
      sh "docker-compose  up -d"
@@ -16,3 +16,8 @@ node ('docker') {
     sh "docker-compose ps"
  }
 }
+node ('prod')
+  stage "Deploying in production"
+  echo "testing"
+
+
