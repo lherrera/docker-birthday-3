@@ -4,6 +4,9 @@ node ('ci-docker') {
   dir ('example-voting-app') {
    stage "Build Images"
      sh "docker-compose build"
+     sh "docker push lherrera/voting-app"
+     sh "docker push lherrera/result-app"
+
    stage "Deploy Application on CI env"
      sh "docker-compose  stop"
      sh "docker-compose  rm -f"
@@ -22,7 +25,10 @@ node ('ci-docker') {
  }
 }
 node ('prod') {
-  stage "Deploying in production"
-  echo "This is a test"
+  dir('example-voiting-app') {
+    stage "Deploying in production"
+    sh "docker-compose up -d -f docker-compose.prod.yml"
+  }
 }
+
 
