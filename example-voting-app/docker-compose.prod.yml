@@ -12,7 +12,7 @@ services:
       - back-tier
 
   result-app:
-    image: lherrera//result-app
+    image: lherrera/result-app
     volumes:
       - ./result-app:/app
     ports:
