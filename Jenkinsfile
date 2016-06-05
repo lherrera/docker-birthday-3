@@ -9,8 +9,8 @@ node ('docker') {
      sh "docker-compose  rm -f"
      sh "docker-compose  up -d"
    stage "Testing"
-    sh "curl 0:0.0.0:5000"
-    sh "curl 0.0.0.0:5001"
+    sh "curl localhost:5000"
+    sh "curl localhost:5001"
    stage "Publish Application Details"
     sh "docker-compose ps"
  }
