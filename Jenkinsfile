@@ -23,6 +23,6 @@ node ('ci-docker') {
 }
 node ('prod') {
   stage "Deploying in production"
-  echo """
+  echo "This is a test"
 }
 
