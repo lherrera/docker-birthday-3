@@ -25,10 +25,10 @@ node ('ci-docker') {
  }
 }
 node ('prod') {
-  dir('example-voiting-app') {
+  checkout scm
+  dir ('example-voting-app') {
     stage "Deploying in production"
     sh "docker-compose -f docker-compose.prod.yml up -d"
   }
 }
-
 
