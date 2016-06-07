@@ -24,6 +24,7 @@ node ('ci-docker') {
     sh "docker-compose ps"
  }
 }
+# cambio
 node ('prod') {
   checkout scm
   dir ('example-voting-app') {
