@@ -22,7 +22,7 @@ node ('ci-docker') {
         }
    stage "Publish Application Details"
     sh "docker-compose ps"
-   stage "Approve"
+   stage "Permiso?"
     timeout(time: 7, unit: 'DAYS') {
     input message: 'Do you want to deploy?'}
   }
