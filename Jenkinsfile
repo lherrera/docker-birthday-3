@@ -12,7 +12,7 @@ node ('ci-docker') {
      sh "docker-compose  rm -f"
      sh "docker-compose  up -d"
    stage "Test" 
-	parallel 'inegration': {
+	parallel 'integration': {
           sh "sleep 10"
           sh "curl localhost:5000"
           sh "curl localhost:5001"
