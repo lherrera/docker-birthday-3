@@ -22,7 +22,10 @@ node ('ci-docker') {
         }
    stage "Publish Application Details"
     sh "docker-compose ps"
- }
+   stage 'approve'
+    timeout(time: 7, unit: 'DAYS') {
+    input message: 'Do you want to deploy?', submitter: ''ops'
+    }
 }
 node ('prod') {
   checkout scm
