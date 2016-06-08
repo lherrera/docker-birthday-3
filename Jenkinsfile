@@ -24,8 +24,7 @@ node ('ci-docker') {
     sh "docker-compose ps"
    stage 'approve'
     timeout(time: 7, unit: 'DAYS') {
-    input message: 'Do you want to deploy?', submitter: 'ops'
-    }
+    input message: 'Do you want to deploy?' }
 }
 node ('prod') {
   checkout scm
